@@ -8,6 +8,7 @@ html {
 h1 {
 	color: #fff;
 	padding: 10px;
+	text-align: center;
 }
 
 .box {
@@ -64,7 +65,7 @@ button {
 	background-color: #a683e3;
 	color: #fff;
 	font-size: 30px;
-	padding-bottom: 6px;
+	padding: 6px;
 	border-width: 0;
 }
 
