@@ -10,7 +10,7 @@
 	<body>
         <div class="box" id="heading">
             
-            <h1><%= date %></h1>
+            <h1><%= list %></h1>
         </div>
         <div class="box">
             <p class="heading">To Do List</p>
@@ -20,9 +20,9 @@
                     <p><%= itemsList[i] %></p>
                 </div>
                 <% } %>
-            <form action="/new-item" method="post" class="item">
+            <form action="/" method="post" class="item">
                 <input type="text" name="newItem" placeholder="Do something" autocomplete="off"/>
-                <button type="submit" name="button">+</button>
+                <button type="submit" name="button" value=<%= list %>>+</button>
             </form>
         </div>
 	</body>
