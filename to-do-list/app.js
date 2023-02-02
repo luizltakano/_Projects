@@ -1,4 +1,5 @@
 const express = require("express");
+const date = require(__dirname + "/modules/date.js");
 const app = express();
 
 // Item arrays
@@ -13,14 +14,8 @@ app.use(express.static("public"));
 
 // Route for main list page
 app.get("/", (req, res) => {
-	// Get current date and format it
-	const today = new Date();
-	const options = {
-		year: "numeric",
-		month: "long",
-		day: "numeric",
-	};
-	const formattedDate = today.toLocaleDateString("en-UK", options);
+	// Get formatted date
+	const formattedDate = date.getDate();
 
 	// Render list page with current date and items list
 	res.render("list", { list: formattedDate, itemsList: items });
