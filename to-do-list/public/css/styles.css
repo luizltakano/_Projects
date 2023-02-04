@@ -17,6 +17,42 @@ h1 {
 	background: white;
 	border-radius: 5px;
 	box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+	overflow: hidden;
+}
+
+.tabs {
+	max-width: 400px;
+	background: #a683e3;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	max-height: 64px;
+}
+
+.tab {
+	text-align: center;
+	top: 10px;
+	border: none;
+	background: transparent;
+	font-size: 20px;
+	min-width: 50%;
+	max-width: 50%;
+	min-height: 50%;
+	max-height: 50%;
+}
+
+.tab:hover .tabheading{
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.tabheading {
+	color: #fff
+}
+
+.tabheading-active {
+	color: #fff;
+	font-weight: 500
 }
 
 #heading {
@@ -52,7 +88,7 @@ p {
 	color: #00204a;
 }
 
-form {
+form.item {
 	text-align: center;
 	margin-left: 20px;
 }

@@ -5,17 +5,37 @@
             <h1><%= list %></h1>
         </div>
         <div class="box">
-            <p class="heading">To Do List</p>
-                <% for(let i=0; i<itemsList.length; i++){ %>
-                <div class="item">
-                    <input type="checkbox">
-                    <p><%= itemsList[i] %></p>
+            <div class="tabs">
+                <div class="tab" onclick="window.location.href = 'http://localhost:3000/';">
+                    <p class="tabheading" id="default-list">Home</p>
                 </div>
-                <% } %>
+                <div class="tab" onclick="window.location.href = 'http://localhost:3000/work';">
+                    <p class="tabheading" id="work-list">Work</p>
+                </div>
+            </div>
+                <% itemsList.forEach(item => { %>
+                    <% if(!item.closedAt){ %>
+                    <div class="item">
+                        <form action="/delete" method="post">
+                            <div>
+                                <input type="checkbox" name="checkbox" value="<%= item['id'] %>" onchange="this.form.submit()">
+                            </div>
+                        </form>
+                        <p><%= item.title %></p>
+                    </div>
+                <% }}) %>
             <form action="/" method="post" class="item">
                 <input type="text" name="newItem" placeholder="Do something" autocomplete="off"/>
                 <button type="submit" name="button" value=<%= list %>>+</button>
             </form>
         </div>
 	
+        <script>
+            if ((document.URL) == 'http://localhost:3000/work') {
+                document.getElementById('work-list').className = "tabheading-active";
+            } else {
+                document.getElementById('default-list').className = "tabheading-active";
+            }
+        </script>
+
 <%- include("footer") -%>
